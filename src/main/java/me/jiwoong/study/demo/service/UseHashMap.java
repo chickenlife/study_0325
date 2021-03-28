@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.Map.Entry;
 
-//@Service
-@Component
+@Service
+//@Component
 @Slf4j
 public class UseHashMap {
     HashMap<String,Integer> userInfoMap = new HashMap<>();

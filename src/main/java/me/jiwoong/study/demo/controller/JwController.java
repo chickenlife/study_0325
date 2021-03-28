@@ -1,5 +1,7 @@
 package me.jiwoong.study.demo.controller;
 
+import me.jiwoong.study.demo.dto.UserInfoDTO;
+import me.jiwoong.study.demo.service.TestDTOService;
 import me.jiwoong.study.demo.service.UseHashMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,9 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JwController {
     final UseHashMap userService;
+    final TestDTOService userinfo;
 
-    public JwController(UseHashMap userService) {
+    public JwController(UseHashMap userService, TestDTOService userinfo) {
         this.userService = userService;
+        this.userinfo = userinfo;
     }
 
     @GetMapping("/selectUsers")
@@ -21,4 +25,17 @@ public class JwController {
     public String selectAge(){
         return userService.allAge();
     }
+
+    @GetMapping("/select2")
+    public UserInfoDTO selectUsersDTO()
+    {
+        return userinfo.outputUserInfo();
+    }
+
+    @GetMapping("/insert")
+    public void insertUserInfo(String name, int age){
+        userinfo.inputUserInfo(name,age);
+    }
+
+
 }
