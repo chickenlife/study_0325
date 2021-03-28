@@ -15,6 +15,7 @@ public class TestService {
         response.setFirstName(name);
         response.setLastName("last name");
         response.setAge(10);
+        response.getAge2();
         return response;
     }
 }

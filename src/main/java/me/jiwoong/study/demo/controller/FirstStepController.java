@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class FirstStepController {
 
     final TestService testService;
+    final me.jiwoong.study.demo.service.UseHashMap useHashMap;
 
-    public FirstStepController(TestService testService) {
+    public FirstStepController(TestService testService, me.jiwoong.study.demo.service.UseHashMap useHashMap) {
         this.testService = testService;
+        this.useHashMap = useHashMap;
     }
 
     @GetMapping("/hi")
@@ -26,5 +28,14 @@ public class FirstStepController {
     public String hi2() {
         log.debug("hi2");
         return "asdf";
+    }
+/* 03-25 homework. use map.*/
+    @GetMapping("/addUserInfo")
+    public String addUserInfo(String name, int age){
+        return useHashMap.addUserInfo(name, age);
+    }
+    @GetMapping("/totalAge")
+    public String totalAge() {
+        return useHashMap.totalAge();
     }
 }
