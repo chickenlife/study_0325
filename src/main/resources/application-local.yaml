@@ -1,0 +1,3 @@
+logging:
+  level:
+    me.jiwoong.study.demo.controller: DEBUG
