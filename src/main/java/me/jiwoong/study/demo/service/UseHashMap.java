@@ -1,13 +1,14 @@
 package me.jiwoong.study.demo.service;
 
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.Map.Entry;
 
-@Service
+//@Service
+@Component
 @Slf4j
 public class UseHashMap {
     HashMap<String,Integer> userInfoMap = new HashMap<>();
@@ -41,6 +42,7 @@ public class UseHashMap {
         Set users = userInfoMap.keySet();
         return "users : "+users;
     }
+
     public String allAge(){
         Set<Map.Entry<String, Integer>> entry = userInfoMap.entrySet();
         List<String> ageList = new ArrayList<>();
