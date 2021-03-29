@@ -5,4 +5,5 @@ logging:
   level:
     root: INFO
     me.jiwoong.study.demo.controller: ERROR
-    me.jiwoong.study.demo.service : DEBUG
+    me.jiwoong.study.demo.service : INFO
+    me.jiwoong.study.demo.service.TestDTOService : DEBUG

@@ -3,7 +3,10 @@ package me.jiwoong.study.demo.controller;
 import lombok.extern.slf4j.Slf4j;
 import me.jiwoong.study.demo.dto.FirstResponse;
 import me.jiwoong.study.demo.service.TestService;
+import me.jiwoong.study.demo.service.UseHashMapService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -11,11 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class FirstStepController {
 
     final TestService testService;
-    final me.jiwoong.study.demo.service.UseHashMap useHashMap;
+    final UseHashMapService useHashMapService;
 
-    public FirstStepController(TestService testService, me.jiwoong.study.demo.service.UseHashMap useHashMap) {
+    public FirstStepController(TestService testService, UseHashMapService useHashMapService) {
         this.testService = testService;
-        this.useHashMap = useHashMap;
+        this.useHashMapService = useHashMapService;
     }
 
     @GetMapping("/hi")
@@ -31,11 +34,12 @@ public class FirstStepController {
     }
 /* 03-25 homework. use map.*/
     @GetMapping("/addUserInfo")
-    public String addUserInfo(String name, int age){
-        return useHashMap.addUserInfo(name, age);
+    public Map<String, Integer> addUserInfo(String name, int age){
+        return useHashMapService.addUserInfo(name, age);
     }
+
     @GetMapping("/totalAge")
     public String totalAge() {
-        return useHashMap.totalAge();
+        return useHashMapService.totalAge();
     }
 }

@@ -10,12 +10,12 @@ import java.util.Map.Entry;
 @Service
 //@Component
 @Slf4j
-public class UseHashMap {
-    HashMap<String,Integer> userInfoMap = new HashMap<>();
+public class UseHashMapService {
+    Map<String,Integer> userInfoMap = new HashMap<>();
 
-    public String addUserInfo(String name, int age){
+    public Map<String, Integer> addUserInfo(String name, int age){
         userInfoMap.put(name,age);
-        return "total userinfo is " + userInfoMap;
+        return userInfoMap;
     }
 
     public String totalAge(){
@@ -40,17 +40,20 @@ public class UseHashMap {
 
     public String allUser(){
         Set users = userInfoMap.keySet();
-        return "users : "+users;
+        return "all users : "+users;
     }
 
-    public String allAge(){
+    public List<String> allAge(){
         Set<Map.Entry<String, Integer>> entry = userInfoMap.entrySet();
         List<String> ageList = new ArrayList<>();
 
         for(Entry<String, Integer> entryIter : entry){
             ageList.add(String.valueOf(entryIter.getValue()));
         }
-        return "ages : "+ageList;
+        return ageList;
     }
 
+    public void clear() {
+        userInfoMap.clear();
+    }
 }
